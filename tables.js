@@ -3,7 +3,7 @@ function getTables(date, guests) {
     $.ajax({
         type: "GET",
         url: "localhost:8080/getTables?guests="+ guests+"",
-        data: "data",
+        data: "JSON",
         dataType: "dataType",
         success: function (response) {
             for (let index = 0; index < response.length; index++) {
