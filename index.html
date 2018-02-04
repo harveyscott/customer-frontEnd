@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Customer-FrontEnd</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="tables.js"></script>
+<body>
+  <div class="container-fluid" id="heading-header">
+    <div class="col-sm-12 top-bar">
+      <h1 id="title">Book A Table</h1>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <br>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select a date
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li>Wednesday the 31st of January</li>
+      </ul>
+    </div>
+    <br>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Number of guests
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+    <button type="button" class="btn">View tables</button>
+  </div>
+
+  <div id="table-listing">
+
+  </div>
+
+</body>
+</html>
