@@ -1,19 +1,13 @@
 function getDates() {
-    var dates = [];
-
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/getDates",
+        url: "http://192.168.1.86:8080/getDates",
         data: "data",
         dataType: "JSON",
         success: function (response) {
             for (let index = 0; index < response.length; index++) {
-                dates.push(response[i]);
+                $('#dateDropDown').append('<li>' + response[index] + '</li>');
             }
         }
     });
-
-    $( document ).ajaxComplete(function( event, request, settings ) {
-        return dates;
-      });
 }

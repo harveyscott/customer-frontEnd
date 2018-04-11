@@ -1,4 +1,9 @@
 function getTables(date, guests) {
+
+
+
+
+    
     // create request
     $.ajax({
         type: "GET",
@@ -18,9 +23,12 @@ function getTables(date, guests) {
                 description.innerText("Seats: " + response[index].seats);
                 card_body.appendChild(description);
                 card.appendChild(card_body);
+
                 var table_listing = document.getElementById("table-listing");
                 table_listing.appendChild(card);
             }
+
+
         }
     });
 }
