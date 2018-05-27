@@ -13,16 +13,58 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
   <script src="tables.js"></script>
   <script src="dates.js"></script>
+  <script src="booking.js"></script>
   <script>
     $(document).ready(function () {
       $('#dateDropDown').empty();
-      var guests;
-      getDates();
+      var guests = {
+        name: "",
+        numOfGuests: "",
+        date: "",
+        email: "",
+        phoneNumber: "",
+        tableID: "",
+        hours: ""
+      };
 
-      // for (let index = 0; index < dates.length; index++) {
-      //   $('#dateDropDown').append('<li>' + dates[i] + '</li>');
-      // }
-      
+      $(".dateClass").click(function (e) {
+        e.preventDefault();
+        $("#dateSelector").text($(this).text());
+        guests.date = $(this).text();
+      });
+
+      $("#dateSelector").click(function (e) {
+        e.preventDefault();
+        $('#dateDropDown').empty();
+        getDates(guests);
+      });
+
+
+      $(".seatsNeeded").click(function (e) {
+        e.preventDefault();
+        $("#seatsNeededButton").text($(this).text());
+        guests.numOfGuests = $(this).text();
+        console.log(guests);
+      });
+
+      $("#submitBooking").click(function (e) {
+        e.preventDefault();
+        guests.name = $("#nameBox").val();
+        guests.email = $("#emailBox").val();
+        guests.phoneNumber = $("#phoneBox").val();
+        console.log(guests);
+        postBooking(guests);
+      });
+
+      $('#viewTableButton').click(function (e) {
+        e.preventDefault();
+        getTables(guests);
+      });
+
+      $('#clikMe').click(function (e) {
+        e.preventDefault();
+        // $("#myModal").modal() 
+      });
 
     });
   </script>
@@ -32,7 +74,9 @@
   <div class="container-fluid" id="heading-header">
     <div class="col-sm-12 top-bar">
       <h1 id="title">Book A Table</h1>
+      <button class="btn btn-danger" id="clickMe"> A Button</button>
     </div>
+
   </div>
 
   <div class="container-fluid">
@@ -48,23 +92,58 @@
     </div>
     <br>
     <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Number of guests
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="seatsNeededButton">Seats Needed
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
+        <li class="seatsNeeded">2</li>
+        <li class="seatsNeeded">4</li>
+        <li class="seatsNeeded">6</li>
       </ul>
     </div>
     <br>
-    <button type="button" class="btn">View tables</button>
+    <button type="button" class="btn" id="viewTableButton">View tables</button>
   </div>
 
   <div id="table-listing">
 
+  </div>
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Enter in Details</h4>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="pwd">Name:</label>
+              <input type="name" class="form-control" id="nameBox" placeholder="Enter Name" name="nameBox">
+            </div>
+
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="emailBox" placeholder="Enter email" name="emailBox">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Phone:</label>
+            <input type="text" class="form-control" id="phoneBox" placeholder="Enter Phone Number" name="phoneBox">
+          </div>
+          <button type="submit" class="btn btn-default" id="submitBooking">Submit</button>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+
+      </div>
+    </div>
   </div>
 
 </body>

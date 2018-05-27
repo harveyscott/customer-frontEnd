@@ -14,3 +14,22 @@
 #heading-header {
   padding: 0px;
 }
+
+#booking-info {
+  position: fixed;
+  background-color: darkslategrey;
+  right: 7px;
+  top: 7px;
+  padding: 10px
+}
+
+.card {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.timesButton {
+  margin: 1.5%;
+}

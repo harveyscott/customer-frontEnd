@@ -1,13 +1,20 @@
-function getDates() {
+function getDates(guests) {
     $.ajax({
         type: "GET",
-        url: "http://192.168.1.86:8080/getDates",
+        url: "http://localhost:8080/getDates",
         data: "data",
         dataType: "JSON",
         success: function (response) {
             for (let index = 0; index < response.length; index++) {
-                $('#dateDropDown').append('<li>' + response[index] + '</li>');
+                $('#dateDropDown').append('<li class="dateClass">' + response[index] + '</li>');
             }
+
+            $('.dateClass').click(function (e) { 
+                e.preventDefault();
+                $('#dateSelector').text($(this).text());
+                guests.date = $(this).text();
+                console.log(guests);
+            });
         }
     });
 }
