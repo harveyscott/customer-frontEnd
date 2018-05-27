@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Customer-FrontEnd</title>
+  <title>Booking System</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -53,11 +53,12 @@
         guests.email = $("#emailBox").val();
         guests.phoneNumber = $("#phoneBox").val();
         console.log(guests);
-        postBooking(guests);
+        booking(guests);
       });
 
       $('#viewTableButton').click(function (e) {
         e.preventDefault();
+        $("#table-listing").empty();
         getTables(guests);
       });
 
@@ -134,7 +135,7 @@
             <label for="pwd">Phone:</label>
             <input type="text" class="form-control" id="phoneBox" placeholder="Enter Phone Number" name="phoneBox">
           </div>
-          <button type="submit" class="btn btn-default" id="submitBooking">Submit</button>
+          <button type="submit" class="btn btn-default" id="submitBooking" data-dismiss="modal">Submit</button>
         </div>
 
         <!-- Modal footer -->

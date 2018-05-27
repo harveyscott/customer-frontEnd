@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Modify A booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="getBooking.js"></script>
+    <script src="cancelBooking.js"></script>
+
+    <script>
+    $(document).ready(function () {
+        var Booking = {
+
+        }
+
+        $('#getBooking').click(function (e) { 
+            e.preventDefault();
+            getBooking($('#emailBox').val(), $('#idBox').val(), Booking);
+        });
+
+        $('#cancelBooking').click(function (e) { 
+            e.preventDefault();
+            cancelBooking($('#idBox').val());
+            $('#bookinglisting').empty();
+            $('#tablelisting').empty();
+            $('#bookinglistin').append("Booking has now been deleted");
+        });
+    });
+    
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid" id="heading-header">
+        <div class="col-sm-12 top-bar">
+            <h1 id="title">Modify A Booking</h1>
+            <button class="btn btn-danger" id="clickMe"> Go Back</button>
+        </div>
+
+    </div>
+
+    <div>
+        <br>
+        <h2>Please Enter the booking ID number that you were given and your email address</h2>
+        <p>If you cannot remember your booking ID number please call the resturant on </p>
+
+        <form class="form-inline">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="emailBox" placeholder="Enter email" name="emailBox">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Booking ID:</label>
+              <input type="text" class="form-control" id="idBox" placeholder="Enter BookingID" name="idBox">
+            </div>
+            <button type="submit" class="btn btn-default" id="getBooking">Retrieve</button>
+          </form>
+    </div>
+
+    <div id="bookingListing">
+
+    </div>
+
+    <div id="tableListing"></div>
+    <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p>Are you sure You wish to continue. This change is permanent</p>
+                <button id="cancelBooking" class = "btn btn-warning" data-dismiss="modal">Cancel Booking</button>
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>

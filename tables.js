@@ -34,13 +34,8 @@ function getTables(guests) {
                         button.setAttribute("class", "btn btn-success timesButton");
                         button.setAttribute("data-TableID", index);
                         button.setAttribute("data-TimeSelected", arrayItem);
-                        if (arrayItem.length < 2) {
-                            decorator = ".00"
-                            button.innerHTML = arrayItem.concat(decorator);;
-                        } else {
-                            button.innerHTML = arrayItem;
-                        }
-                        
+                        decorator = "0"
+                        button.innerHTML = arrayItem.concat(decorator);;
                         card_body.appendChild(button);
                     })
                         
