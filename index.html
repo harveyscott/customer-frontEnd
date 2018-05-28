@@ -59,6 +59,11 @@
       $('#viewTableButton').click(function (e) {
         e.preventDefault();
         $("#table-listing").empty();
+        $('#table-listing').append("<br><hr>");
+        $('#table-listing').append(
+          "<div id='currentLayout'><h3 class='smallheader'>Current Resturant Layout<h3></div>");
+        $('#currentLayout').append("<p>Numbers indicate the table number</p>");
+        $('#table-listing').append("<hr>");
         getTables(guests);
       });
 
@@ -107,7 +112,7 @@
   </div>
 
   <div id="table-listing">
-
+    <div id="currentLayout"></div>
   </div>
   <!-- The Modal -->
   <div class="modal fade" id="myModal">

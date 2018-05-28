@@ -14,10 +14,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <script src="getBooking.js"></script>
     <script src="cancelBooking.js"></script>
+    <script src="modTables.js"></script>
+    <script src="dates.js"></script>
 
     <script>
     $(document).ready(function () {
+        $('#tableListing').hide();
         var Booking = {
+
+        }
+
+        var BookingNew = {
 
         }
 
@@ -33,6 +40,21 @@
             $('#tablelisting').empty();
             $('#bookinglistin').append("Booking has now been deleted");
         });
+
+        $('#viewTableButton').click(function (e) { 
+            e.preventDefault();
+            var guests = {
+                numOfGuests: Booking.numOfGuests,
+                date: $('#dateSelector').val()
+            };
+            getTables(guests)
+        });
+
+        $("#dateSelector").click(function (e) {
+        e.preventDefault();
+        $('#dateDropDown').empty();
+        getDates(BookingNew);
+      });
     });
     
     </script>
@@ -66,10 +88,25 @@
     </div>
 
     <div id="bookingListing">
-
+        
+        
     </div>
 
-    <div id="tableListing"></div>
+    <div id="tableListing">
+            <br><hr>
+            <div>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="dateSelector">Select a date
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="dateDropDown">
+                      <li>Wednesday the 31st of January</li>
+                    </ul>
+                  </div>
+                  <br>
+            </div>
+            <button type="button" class="btn" id="viewTableButton">View tables</button>
+    </div>
     <!-- The Modal -->
   <div class="modal fade" id="myModal">
         <div class="modal-dialog">

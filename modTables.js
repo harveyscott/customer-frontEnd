@@ -1,5 +1,4 @@
 function getTables(guests) {
-
     var settings = {
         "async": true,
         "url": "http://localhost:8080/getTableLayout",
@@ -11,7 +10,6 @@ function getTables(guests) {
         var inputArray = response;
         var arrayPoint = 0;
         var table = document.createElement("table");
-        table.setAttribute("class", "layoutTable");
 
         // create rows and cells
         for (let i = 0; i < 5; i++) {
@@ -59,6 +57,9 @@ function getTables(guests) {
         inputArea = document.getElementById("currentLayout");
         inputArea.appendChild(table);
       });
+
+
+
 
     // create request
     $.ajax({

@@ -23,25 +23,20 @@ function getBooking(email, id, booking) {
         card.appendChild(card_header);
 
         var changeDateButton = document.createElement("button");
-        var changeTimeButton = document.createElement("button");
         var cancelButton = document.createElement("button");
 
         changeDateButton.setAttribute("class", "btn btn-primary modifyButton");
-        changeTimeButton.setAttribute("class", "btn btn-primary modifyButton");
         cancelButton.setAttribute("class", "btn btn-danger modifyButton");
 
         changeDateButton.setAttribute("id", "changeDateButton");
-        changeTimeButton.setAttribute("id", "changeTimeButton");
         cancelButton.setAttribute("id", "cancelButton");
 
-        changeDateButton.innerHTML = "Change Date";
-        changeTimeButton.innerHTML = "Change Time";
+        changeDateButton.innerHTML = "Change Date/Time";
         cancelButton.innerHTML = "Cancel Booking";
 
         var card_body = document.createElement("div");
         card_body.setAttribute('class', 'card-body');
         card_body.appendChild(changeDateButton);
-        card_body.appendChild(changeTimeButton);
         card_body.appendChild(cancelButton);
 
 
@@ -52,6 +47,11 @@ function getBooking(email, id, booking) {
         $('#cancelButton').click(function (e) { 
             e.preventDefault();
             $("#myModal").modal()
+        });
+
+        $('#changeDateButton').click(function (e) { 
+            e.preventDefault();
+            $('#tableListing').show();
         });
 
 
