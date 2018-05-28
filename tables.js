@@ -74,6 +74,12 @@ function getTables(guests) {
                     var card = document.createElement("div");
                     card.setAttribute("class", "card");
 
+                    // create photos
+                    var img = document.createElement("img");
+                    img.setAttribute("class", "card-img-top tableImage");
+                    img.setAttribute("src", "res\\" + index + ".JPG");
+                    card.appendChild(img);
+
                     // create header
                     var card_header = document.createElement("div");
                     card_header.setAttribute("class", "card-header");
